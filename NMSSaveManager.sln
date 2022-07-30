@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NMSSaveManager", "NMSSaveManager\NMSSaveManager.csproj", "{5B90B495-C6E0-48AF-AA87-FC4278ADD3E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nms", "nms\nms.csproj", "{038B5BA6-9C7B-41A4-A695-40D7FB3FA545}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5B90B495-C6E0-48AF-AA87-FC4278ADD3E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B90B495-C6E0-48AF-AA87-FC4278ADD3E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B90B495-C6E0-48AF-AA87-FC4278ADD3E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B90B495-C6E0-48AF-AA87-FC4278ADD3E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{038B5BA6-9C7B-41A4-A695-40D7FB3FA545}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{038B5BA6-9C7B-41A4-A695-40D7FB3FA545}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{038B5BA6-9C7B-41A4-A695-40D7FB3FA545}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{038B5BA6-9C7B-41A4-A695-40D7FB3FA545}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {775FA514-EBDA-4B8B-87BA-E767840D0323}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Description>Manage No Man's Sky save files</Description>
+    <Authors>Kevin0M16</Authors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="K4os.Compression.LZ4" Version="1.2.16" />
+    <PackageReference Include="libNOM.map" Version="0.8.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="SpookilySharp" Version="1.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.IO.Compression" />
+  </ItemGroup>
+
+</Project>
