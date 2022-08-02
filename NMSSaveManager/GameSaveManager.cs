@@ -37,8 +37,8 @@ namespace NMSSaveManager
         private string _savePath;
         private ulong? _profileKey;
         //private InventoryItemTypes _inventoryItemTypes;
-        private TextWriter _log;
-        private TextWriter _logVerbose;
+        //private TextWriter _log;
+        //private TextWriter _logVerbose;
         #endregion
 
         #region Public Constructors
@@ -136,13 +136,9 @@ namespace NMSSaveManager
         /// <returns></returns>
         public GameSave ReadSaveFile(uint gameSlot)
         {
-            string metadataPath;
-            string storagePath;
-            uint archiveNumber;
-
             //LogVerbose("Checking for save games for slot {0}", gameSlot);
 
-            GameSavePathsForRead(gameSlot, out metadataPath, out storagePath, out archiveNumber);
+            GameSavePathsForRead(gameSlot, out string metadataPath, out string storagePath, out uint archiveNumber);
 
             //LogVerbose("Reading game save for slot {0} at metadata path = '{1}', save path = {2}, and archive number = {3}", gameSlot, metadataPath, storagePath, archiveNumber);
 
@@ -173,15 +169,11 @@ namespace NMSSaveManager
         /// <param name="useOldFormat">true to use the NMS 1.0 game save format, false otherwise.</param>
         public void WriteSaveFile(GameSave gameSave, uint gameSlot)
         {
-            string metadataPath;
-            string storagePath;
-            uint archiveNumber;
-
             ValidateGameSlot(gameSlot);
 
             //LogVerbose("Determining save games file locations for slot {0}", gameSlot);
 
-            GameSavePathsForWrite(gameSlot, out metadataPath, out storagePath, out archiveNumber);
+            GameSavePathsForWrite(gameSlot, out string metadataPath, out string storagePath, out uint archiveNumber);
 
             //LogVerbose("Writing game save for slot {0} to metadata path = '{1}', save path = {2}, and archive number = {3}", gameSlot, metadataPath, storagePath, archiveNumber);
 

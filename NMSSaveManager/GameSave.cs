@@ -3,7 +3,6 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.IO;
-using static NMSSaveManager.SaveCompression;
 
 namespace NMSSaveManager
 {
@@ -13,21 +12,18 @@ namespace NMSSaveManager
 
         public static JObject DecryptSave(string hgFilePath, string jsonOutputPath)
         {
-            //string rawSave = @".\temp_rawsave.json";
-            DecompressSave(hgFilePath, out string rawjson);
+            // Decompress save and create json string
+            SaveCompression.DecompressSave(hgFilePath, out string rawjson);
 
-            //string rawjson = File.ReadAllText(rawSave);
+            // Convert string to readable json
             string ufjson = JsonConvert.SerializeObject(JObject.Parse(rawjson), Formatting.Indented).TrimEnd('\0');
 
-            // Sets json after modifying original values to key names                
+            // Modifies original values to key names                
             JObject jObject = JsonConvert.DeserializeObject(ufjson) as JObject;
             Mapping.Deobfuscate(jObject);
 
             // Writes new json string to jsonOutputPath
             File.WriteAllText(jsonOutputPath, jObject.ToString());
-
-            //if (File.Exists(rawSave))
-            //    File.Delete(rawSave);
 
             return jObject;
         }
@@ -36,7 +32,7 @@ namespace NMSSaveManager
             string injson = File.ReadAllText(jsonInputPath);
             GameSaveManager _gsm = new GameSaveManager(Path.GetDirectoryName(hgFilePath));
 
-            // Sets json from input and reverses all key names back to original
+            // Reverses all key names back to original values
             JObject jObject = JsonConvert.DeserializeObject(injson) as JObject;
             Mapping.Obfuscate(jObject);
             injson = jObject.ToString();
@@ -44,13 +40,13 @@ namespace NMSSaveManager
             // Sets new save and checks if compressed
             GameSave newsave = new GameSave(injson);
             newsave.SetSaveToLatest(hgFilePath);
-            bool FrontiersCheck = IsFrontiers(hgFilePath);
+            bool FrontiersCheck = SaveCompression.IsFrontiers(hgFilePath);
 
             // Writes the new save file
             _gsm.WriteSaveFile(newsave, saveslot);
 
             if (FrontiersCheck)
-                CompressSave(hgFilePath);
+                SaveCompression.CompressSave(hgFilePath);
         }
         public GameSave(string jsonStr)
         {

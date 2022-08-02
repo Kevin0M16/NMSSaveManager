@@ -21,7 +21,7 @@ namespace NMSSaveManager
                 br.Close();
                 fs.Close();
 
-                if (magicmagic == MAGIC_COMPRESSED)
+                if (magicmagic == MAGIC_COMPRESSED) //0xFEEDA1E5
                 {
                     Console.WriteLine("hgFilePath MAGIC_COMPRESSED 0xFEEDA1E5 IsFrontiers = true");
                     return true;
@@ -63,7 +63,7 @@ namespace NMSSaveManager
                 uint magicmagic = br.ReadUInt32();
                 br.BaseStream.Position = 0;
 
-                if (magicmagic == MAGIC_COMPRESSED)
+                if (magicmagic == MAGIC_COMPRESSED) //0xFEEDA1E5
                 {
                     Console.WriteLine("hgFilePath MAGIC_COMPRESSED 0xFEEDA1E5");
 
