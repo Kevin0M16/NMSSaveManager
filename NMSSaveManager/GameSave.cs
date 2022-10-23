@@ -48,6 +48,13 @@ namespace NMSSaveManager
             if (FrontiersCheck)
                 SaveCompression.CompressSave(hgFilePath);
         }
+        private static void UpdateJson(string folderpath)
+        {
+            // Update mapping.json file Ex. @"nmsc\"
+            Mapping.Settings = new MappingSettings { Download = folderpath };
+            Mapping.Update();
+            Mapping.UpdateAsync();
+        }
         public GameSave(string jsonStr)
         {
             _json = JObject.Parse(jsonStr);
