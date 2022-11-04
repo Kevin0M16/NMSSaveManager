@@ -12,6 +12,8 @@ namespace NMSSaveManager
 
         public static JObject DecryptSave(string hgFilePath, string jsonOutputPath)
         {
+            bool FrontiersCheck = SaveCompression.IsFrontiers(hgFilePath);
+
             // Decompress save and create json string
             SaveCompression.DecompressSave(hgFilePath, out string rawjson);
 

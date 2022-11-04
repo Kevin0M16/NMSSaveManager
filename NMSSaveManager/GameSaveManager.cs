@@ -30,7 +30,7 @@ namespace NMSSaveManager
     public class GameSaveManager
     {
         #region Public Constants
-        const uint MaxGameSlots = 5;
+        const uint MaxGameSlots = 15;
         #endregion
 
         #region Private Member Variables
