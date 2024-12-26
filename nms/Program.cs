@@ -15,9 +15,9 @@ namespace nms
                 if (choice == "decrypt")
                 {
                     Console.WriteLine("Enter hgFilePath (source): ");
-                    string hgFilePath = @".\" + Console.ReadLine();
+                    string hgFilePath = Console.ReadLine();
                     Console.WriteLine("Enter jsonOutput Path (destination): ");
-                    string jsonOutputPath = @".\" + Console.ReadLine();
+                    string jsonOutputPath = Console.ReadLine();
 
                     GameSave.DecryptSave(hgFilePath, jsonOutputPath);
                 }
@@ -27,9 +27,9 @@ namespace nms
                     Console.WriteLine("Enter saveslot: ");
                     uint saveslot = Convert.ToUInt32(Console.ReadLine());
                     Console.WriteLine("Enter hgFilePath (destination): ");
-                    string hgFilePath = @".\" + Console.ReadLine();
+                    string hgFilePath =Console.ReadLine();
                     Console.WriteLine("Enter jsonInput Path (source): ");
-                    string jsonInputPath = @".\" + Console.ReadLine();
+                    string jsonInputPath = Console.ReadLine();
 
                     GameSave.EncryptSave(saveslot, hgFilePath, jsonInputPath);
                 }

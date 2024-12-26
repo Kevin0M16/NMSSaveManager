@@ -53,7 +53,14 @@ namespace NMSSaveManager
         private static void UpdateJson(string folderpath)
         {
             // Update mapping.json file Ex. @"nmsc\"
-            Mapping.Settings = new MappingSettings { Download = folderpath };
+            var newSettings = new MappingSettings
+            {
+                DownloadDirectory = folderpath,
+                IncludePrerelease = true
+            };
+
+            Mapping.SetSettings(newSettings);
+
             Mapping.Update();
             Mapping.UpdateAsync();
         }
